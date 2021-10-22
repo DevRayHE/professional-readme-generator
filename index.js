@@ -26,7 +26,7 @@ inquirer
     {
       type: 'checkbox',
       message: 'What languages was used?',
-      name: 'stack',
+      name: 'languageUsed',
       choices: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
     },
     {
@@ -74,7 +74,7 @@ const ask = () => {
         console.log(typeof(featureData));
         console.log('Your project features:', featureData.join(', '));
 
-        const {developer,projectTitle, projectDescription,repoUrl} = generalData
+        const {developer,projectTitle, projectDescription, languageUsed, repoUrl} = generalData
 
         const toWriteProjectTitle = 
 `# 💻Project Title
@@ -86,7 +86,7 @@ const ask = () => {
         const toWriteDescription = 
 `## 📖Description
 
-### ${projectDescription}
+### ${projectDescription}, langugaes used ${languageUsed}.
 
 <br/>
 
@@ -106,10 +106,15 @@ const ask = () => {
 
 `
 
-        const toWriteFeatures = 
+        // Generate feature section content
+        let toWriteFeatures = 
 `## 🎇Features
 
-<br/>
+`
+        for (const feature of featureData) toWriteFeatures += '* ' + feature + '\n';
+
+        toWriteFeatures += 
+`<br/>
 
 `
 

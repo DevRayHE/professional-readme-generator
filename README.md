@@ -1,11 +1,11 @@
 # 💻Project Title
 
-## test pro
+## Readme Generator
 <br/>
 
 ## 📖Description
 
-### a
+### Readme generator for any projects, extremely easy to implement, heaps of features, langugaes used HTML,CSS,JavaScript,Node.js.
 
 <br/>
 
@@ -22,6 +22,11 @@
 
 ## 🎇Features
 
+* Professional template
+* Table of contents with functional links
+* Dynamic generated content based on user input
+* Installation guide
+* MIT License with dynamic detail
 <br/>
 
 ## 🖼️Usage
@@ -30,7 +35,7 @@
 
 ## 📓Installation
 
-[Repo url](repo)
+[Repo url](https://github.com/DevRayHE/professional-readme-generator.git)
 
 <br/>
 
@@ -67,7 +72,7 @@
 
 ### MIT License
 
-Copyright (c) [2021] [Ray]
+Copyright (c) [2021] [Ray He]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
