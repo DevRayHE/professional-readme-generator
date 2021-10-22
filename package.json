@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DevRayHE/professional-readme-generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.0"
+    "inquirer": "^8.2.0",
+    "inquirer-autocomplete-prompt": "^1.4.0"
   }
 }

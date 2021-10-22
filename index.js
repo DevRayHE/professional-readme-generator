@@ -3,6 +3,9 @@ const fs = require('fs');
 const today = new Date();
 const year = today.getFullYear();
 
+let featureData = [];
+let generalData = [];
+
 inquirer
   .prompt([
     {
@@ -33,19 +36,55 @@ inquirer
     },
   ])
   .then((data) => {
-    const {developer,projectTitle, projectDescription,repoUrl} = data;
-
+    // const {developer,projectTitle, projectDescription,repoUrl} = data;
+    generalData = data;
     console.log(data);
+    ask();
 
-    const toWriteProjectTitle = 
-`# 💻 Project Title
+  })
+  .catch((error) => {
+    if (error.isTtyerror) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      console.log('Error occured!' + error);
+    }
+  });
+
+const questions = [
+  {
+    type: 'input',
+    name: 'feature',
+    message: "Project feature",
+  },
+  {
+    type: 'confirm',
+    name: 'moreFeature',
+    message: 'Want to enter another project feature (just hit enter for YES)?',
+    default: true,
+  },
+];
+
+const ask = () => {
+  inquirer.prompt(questions)
+    .then((answers) => {
+      featureData.push(answers.feature);
+      if (answers.moreFeature) {
+        ask();
+      } else {
+        console.log(typeof(featureData));
+        console.log('Your project features:', featureData.join(', '));
+
+        const {developer,projectTitle, projectDescription,repoUrl} = generalData
+
+        const toWriteProjectTitle = 
+`# 💻Project Title
 
 ## ${projectTitle}
 <br/>
 
 `
-    const toWriteDescription = 
-`## 📖 Description
+        const toWriteDescription = 
+`## 📖Description
 
 ### ${projectDescription}
 
@@ -53,7 +92,7 @@ inquirer
 
 `
 
-    const toWriteTOC = 
+        const toWriteTOC = 
 `## Table of Contents
 
 - [Features](#🎇features)
@@ -67,22 +106,22 @@ inquirer
 
 `
 
-    const toWriteFeatures = 
+        const toWriteFeatures = 
 `## 🎇Features
 
 <br/>
 
 `
 
-    const toWriteUsage = 
-`## 🖼️ Usage
+        const toWriteUsage = 
+`## 🖼️Usage
 
 <br/>
 
 `
 
-    const toWriteInstallation = 
-`## 📓 Installation
+        const toWriteInstallation = 
+`## 📓Installation
 
 [Repo url](${repoUrl})
 
@@ -109,21 +148,21 @@ inquirer
 
 `
 
-    const toWriteCC =
-`## 🏗️ Contribute
+        const toWriteCC =
+`## 🏗️Contribute
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
 <br/>
 
-## 🏆 Credits
+## 🏆Credits
 
 <br/>
 
 `
 
-    const toWriteLicense = 
-`## 📝 License
+        const toWriteLicense = 
+`## 📝License
 
 ### MIT License
 
@@ -148,24 +187,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 `
 
-    const dataToWrite = toWriteProjectTitle 
-      + toWriteDescription
-      + toWriteTOC
-      + toWriteFeatures
-      + toWriteUsage
-      + toWriteInstallation
-      + toWriteCC
-      + toWriteLicense
+        const dataToWrite = toWriteProjectTitle 
+          + toWriteDescription
+          + toWriteTOC
+          + toWriteFeatures
+          + toWriteUsage
+          + toWriteInstallation
+          + toWriteCC
+          + toWriteLicense
 
-    fs.writeFile('README.md', dataToWrite, (error) =>
-      error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
-    );
-  })
-  .catch((error) => {
-    if (error.isTtyerror) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      console.log('Error occured!' + error);
-    }
-  });
-
+        fs.writeFile('README.md', dataToWrite, (error) =>
+          error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
+        );
+        }
+    });
+}
