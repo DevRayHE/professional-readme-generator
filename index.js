@@ -9,6 +9,11 @@ inquirer
       name: 'projectTitle',
     },
     {
+      type: 'input',
+      message: 'Project description:',
+      name: 'projectDescription',
+    },
+    {
       type: 'checkbox',
       message: 'What languages was used?',
       name: 'stack',
@@ -21,51 +26,69 @@ inquirer
     },
   ])
   .then((data) => {
-    const {projectTitle, repoUrl} = data;
+    const {projectTitle, projectDescription,repoUrl} = data;
 
     console.log(data);
 
     const dataToWrite = 
     `# 💻 Project Title
 
-    ## ${projectTitle}
+## ${projectTitle}
 
-    ## 📖 Description
+## 📖 Description
 
-    ## Table of Contents (Optional)
+### ${projectDescription}
 
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
+## Table of Contents
 
-    ## 📓 Installation
+- [Features](#features)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Contribue](#contribute)
+- [Credits](#credits)
+- [License](#license)
 
-    The link to the repo url:
+## 🎇 
+## Features
 
-    [Repo url](${repoUrl})
+## 🖼️
+## Usage with function video
 
-    ## 🖼️ Usage with function video
+## 📓
+## Installation
 
-    ## 🏆 Credits
+[Repo url](${repoUrl})
+
+### Follow the steps below to install:
+
+1. Clone the github to your local storage.
+
+2. Start up your favourite terminal, follow this guide here if you're not sure how to:
+[A Quick Guide to Using Command Line - Terminal](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955).
+
+3. Navigate to the repository local folder.
+
+4. Run npm i
+
+5. Run node index.js
+
+6. Simply follow the prompt.
+
+7. A professional readme is now generated for your project!
+
+## 🏗️
+## Contribute
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
+
+## 🏆
+## Credits
 
 
-    ## License
-    The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-    ---
-    🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-    ## Badges
-
-    ## 🎇 Features
-
-    ## 🏗️ How to Contribute
-
-    If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant]
-    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-
-    ## Tests
-    `
+## 📝
+## License
+The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+`
 
     fs.writeFile('README.md', dataToWrite, (error) =>
       error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
