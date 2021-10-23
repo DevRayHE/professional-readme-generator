@@ -3,8 +3,9 @@ const fs = require('fs');
 const today = new Date();
 const year = today.getFullYear();
 
-let featureData = [];
 let generalData = [];
+let featureData = [];
+let creditData = [];
 
 inquirer
   .prompt([
@@ -39,7 +40,8 @@ inquirer
     // const {developer,projectTitle, projectDescription,repoUrl} = data;
     generalData = data;
     console.log(data);
-    ask();
+    // start another inquirer prompt by calling askFeature funciton when promised is full-filled on general data inquirer prompt
+    askFeature();
 
   })
   .catch((error) => {
@@ -50,7 +52,7 @@ inquirer
     }
   });
 
-const questions = [
+const featureQuestions = [
   {
     type: 'input',
     name: 'feature',
@@ -64,16 +66,47 @@ const questions = [
   },
 ];
 
-const ask = () => {
-  inquirer.prompt(questions)
+const creditQuestions = [
+  {
+    type: 'input',
+    name: 'creditDesc',
+    message: "Credit description:",
+  },
+  {
+    type: 'input',
+    name: 'creditLink',
+    message: "Credit hyperlink:",
+  },
+  {
+    type: 'confirm',
+    name: 'moreFeature',
+    message: 'Want to enter another credit (just hit enter for YES)?',
+    default: true,
+  },
+];
+
+const askFeature = () => {
+  inquirer.prompt(featureQuestions)
     .then((answers) => {
       featureData.push(answers.feature);
       if (answers.moreFeature) {
-        ask();
+        askFeature();
       } else {
-        console.log(typeof(featureData));
         console.log('Your project features:', featureData.join(', '));
+        // start another inquirer prompt by calling askFeature funciton when promised is full-filled on feature data inquirer prompt
+        askCredit();
+      }
+    });
+}
 
+const askCredit = () => {
+  inquirer.prompt(creditQuestions)
+    .then((answers) => {
+      creditData.push(answers.feature);
+      if (answers.moreFeature) {
+        askCredit();
+      } else {
+        console.log('Credits:', creditData.join(', '));
         const {developer,projectTitle, projectDescription, languageUsed, repoUrl} = generalData
 
         const toWriteProjectTitle = 
@@ -87,6 +120,8 @@ const ask = () => {
 `## 📖Description
 
 ### ${projectDescription}, langugaes used ${languageUsed}.
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 <br/>
 
@@ -153,14 +188,17 @@ const ask = () => {
 
 `
 
-        const toWriteCC =
+        const toWriteContribute =
 `## Contribute🏗️
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
 <br/>
 
-## Credits🏆
+`
+
+        const toWriteCredits =
+`## Credits🏆
 
 <br/>
 
@@ -198,7 +236,8 @@ SOFTWARE.
           + toWriteFeatures
           + toWriteUsage
           + toWriteInstallation
-          + toWriteCC
+          + toWriteContribute
+          + toWriteCredits
           + toWriteLicense
 
         fs.writeFile('README.md', dataToWrite, (error) =>
