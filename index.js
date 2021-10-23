@@ -95,12 +95,12 @@ const ask = () => {
         const toWriteTOC = 
 `## Table of Contents
 
-- [Features](#🎇features)
-- [Usage](#🖼️usage)
-- [Installation](#📓installation)
-- [Contribute](#🏗️contribute)
-- [Credits](#🏆credits)
-- [License](#📝license)
+- [Features](#features🎇)
+- [Usage](#usage🖼️)
+- [Installation](#installation📓)
+- [Contribute](#contribute🏗️)
+- [Credits](#credits🏆)
+- [License](#license📝)
 
 <br/>
 
@@ -108,7 +108,7 @@ const ask = () => {
 
         // Generate feature section content
         let toWriteFeatures = 
-`## 🎇Features
+`## Features🎇
 
 `
         for (const feature of featureData) toWriteFeatures += '* ' + feature + '\n';
@@ -119,14 +119,14 @@ const ask = () => {
 `
 
         const toWriteUsage = 
-`## 🖼️Usage
+`## Usage🖼️
 
 <br/>
 
 `
 
         const toWriteInstallation = 
-`## 📓Installation
+`## Installation📓
 
 [Repo url](${repoUrl})
 
@@ -154,20 +154,20 @@ const ask = () => {
 `
 
         const toWriteCC =
-`## 🏗️Contribute
+`## Contribute🏗️
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
 <br/>
 
-## 🏆Credits
+## Credits🏆
 
 <br/>
 
 `
 
         const toWriteLicense = 
-`## 📝License
+`## License📝
 
 ### MIT License
 

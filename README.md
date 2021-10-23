@@ -1,6 +1,6 @@
 # 💻Project Title
 
-## Readme Generator
+## Pro Readme Generator
 <br/>
 
 ## 📖Description
@@ -11,29 +11,29 @@
 
 ## Table of Contents
 
-- [Features](#🎇features)
-- [Usage](#🖼️usage)
-- [Installation](#📓installation)
-- [Contribute](#🏗️contribute)
-- [Credits](#🏆credits)
-- [License](#📝license)
+- [Features](#features🎇)
+- [Usage](#usage🖼️)
+- [Installation](#installation📓)
+- [Contribute](#contribute🏗️)
+- [Credits](#credits🏆)
+- [License](#license📝)
 
 <br/>
 
-## 🎇Features
+## Features🎇
 
 * Professional template
 * Table of contents with functional links
-* Dynamic generated content based on user input
+* Dynamic generator centent based on user input
 * Installation guide
-* MIT License with dynamic detail
+* MIT license with dynamic generated detail
 <br/>
 
-## 🖼️Usage
+## Usage🖼️
 
 <br/>
 
-## 📓Installation
+## Installation📓
 
 [Repo url](https://github.com/DevRayHE/professional-readme-generator.git)
 
@@ -58,17 +58,17 @@
 
 <br/>
 
-## 🏗️Contribute
+## Contribute🏗️
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
 <br/>
 
-## 🏆Credits
+## Credits🏆
 
 <br/>
 
-## 📝License
+## License📝
 
 ### MIT License
 
