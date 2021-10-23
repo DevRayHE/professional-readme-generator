@@ -28,7 +28,7 @@ inquirer
       type: 'checkbox',
       message: 'What languages was used?',
       name: 'languageUsed',
-      choices: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+      choices: ['Markdown','HTML', 'CSS', 'JavaScript', 'Node.js', 'React'],
     },
     {
       type: 'input',
@@ -116,12 +116,41 @@ const askCredit = () => {
 <br/>
 
 `
+
+        const languageData = [];
+
+        if (languageUsed.includes('Markdown')) {
+          languageData.push('![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)');
+        }
+        if (languageUsed.includes('HTML')) {
+          languageData.push('![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)');
+        }
+        if (languageUsed.includes('CSS')) {
+          languageData.push('![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)');
+        }
+        if (languageUsed.includes('Javascript')) {
+          languageData.push('![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)');
+        }
+        if (languageUsed.includes('Node.js')) {
+          languageData.push('![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)');
+        }
+        if (languageUsed.includes('React')) {
+          languageData.push('![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)');
+        }
+
+        let languageDisplay = '';
+
+        for (const language of languageData) {
+          languageDisplay += (language + '\n\n');
+        }
+
         const toWriteDescription = 
 `## 📖Description
 
-### ${projectDescription}, langugaes used ${languageUsed}.
+### ${projectDescription}
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+### langugaes used: 
+${languageDisplay}
 
 <br/>
 
