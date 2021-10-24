@@ -1,19 +1,17 @@
 # 💻Project Title
 
-## b
+## a
 <br/>
 
 ## 📖Description
 
-### c
+### b
 
-### langugaes used: 
+### Langugaes used: 
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-Node.js
-React
 
 
 <br/>
@@ -31,7 +29,6 @@ React
 
 ## Features🎇
 
-* 
 * 
 <br/>
 
@@ -72,13 +69,18 @@ React
 
 ## Credits🏆
 
-<br/>
+### lleryayo
+[Link to this credit: ](https://github.com/Ileriayo/markdown-badges.git)
 
+### credit b
+[Link to this credit: ](https://github.com/DevRayHE/professional-readme-generator.git)
+
+<br/>
 ## License📝
 
 ### MIT License
 
-Copyright (c) [2021] [a]
+Copyright (c) [2021] [ray]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

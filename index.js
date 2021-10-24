@@ -79,7 +79,7 @@ const creditQuestions = [
   },
   {
     type: 'confirm',
-    name: 'moreFeature',
+    name: 'moreCredits',
     message: 'Want to enter another credit (just hit enter for YES)?',
     default: true,
   },
@@ -102,20 +102,15 @@ const askFeature = () => {
 const askCredit = () => {
   inquirer.prompt(creditQuestions)
     .then((answers) => {
-      creditData.push(answers.feature);
-      if (answers.moreFeature) {
+      creditData.push(answers);
+      // creditData.push(answers.credit);
+      if (answers.moreCredits) {
         askCredit();
       } else {
         console.log('Credits:', creditData.join(', '));
-        const {developer,projectTitle, projectDescription, languageUsed, repoUrl} = generalData
 
-        const toWriteProjectTitle = 
-`# 💻Project Title
-
-## ${projectTitle}
-<br/>
-
-`
+        const {developer,projectTitle, projectDescription, languageUsed, repoUrl} = generalData;
+        const {creditDesc, creditLink} = creditData;
 
         const languageData = [];
 
@@ -144,12 +139,20 @@ const askCredit = () => {
           languageDisplay += (language + '\n\n');
         }
 
+        const toWriteProjectTitle = 
+`# 💻Project Title
+
+## ${projectTitle}
+<br/>
+
+`
+
         const toWriteDescription = 
 `## 📖Description
 
 ### ${projectDescription}
 
-### langugaes used: 
+### Langugaes used: 
 ${languageDisplay}
 
 <br/>
@@ -175,6 +178,7 @@ ${languageDisplay}
 `## Features🎇
 
 `
+        // Separate features from the Array and display on separate lines
         for (const feature of featureData) toWriteFeatures += '* ' + feature + '\n';
 
         toWriteFeatures += 
@@ -226,15 +230,31 @@ ${languageDisplay}
 
 `
 
-        const toWriteCredits =
+        let toWriteCredits = 
 `## Credits🏆
 
-<br/>
+`
+        // Separate credits from the Array and display credit descript and hyperlink on separate lines
+        for (const credit of creditData) toWriteCredits +=
+`### ${credit.creditDesc}
+[Link to this credit: ](${credit.creditLink})
 
 `
 
+        // console.log(credit.creditDesc + credit.creditLink);
+
+//         const toWriteCredits =
+// `## Credits🏆
+
+// ![${creditDesc}](${creditLink}
+
+// <br/>
+
+// `
+
         const toWriteLicense = 
-`## License📝
+`<br/>
+## License📝
 
 ### MIT License
 
