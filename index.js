@@ -1,3 +1,5 @@
+// Importing dependencies
+const dedent = require('dedent');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const today = new Date();
@@ -50,7 +52,6 @@ inquirer
       message: 'Choose a license:',
       name: 'license',
       choices: ['BSD 2-Clause License', 'MIT License', 'The Unlicense'],
-
     },
   ])
   .then((data) => {
@@ -101,6 +102,7 @@ const creditQuestions = [
   },
 ];
 
+// Function to get feature input
 const askFeature = () => {
   inquirer.prompt(featureQuestions)
     .then((answers) => {
@@ -115,6 +117,7 @@ const askFeature = () => {
     });
 }
 
+// Function to get credit input
 const askCredit = () => {
   inquirer.prompt(creditQuestions)
     .then((answers) => {
@@ -136,6 +139,7 @@ const askCredit = () => {
 
         const languageData = [];
 
+        // Generate languages icon based on user selection
         if (languageUsed.includes('Markdown')) {
           languageData.push('![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)');
         }
@@ -161,112 +165,96 @@ const askCredit = () => {
           languageDisplay += (language + '\n\n');
         }
 
-        const toWriteProjectTitle = 
-`---
+        // Using dedent here to strip indentation from template literal, so that can keep the code neat and tidy with proper indentation.
+        const toWriteProjectTitle = dedent(`
 
-# Project Title
+        # Project Title
+        
+        ## ${projectTitle}
 
-## ${projectTitle}
----
+        `);
 
-`
 
-        const toWriteDescription = 
-`## 📖Description
+        const toWriteDescription = dedent(`
+        ## 📖Description
 
-### ${projectDescription}
+        ### ${projectDescription}
+        
+        ### Langugaes used: 
+        ${languageDisplay}
+        `);
 
-### Langugaes used: 
-${languageDisplay}
+        const toWriteTOC = dedent(`\n
+        ## Table of Contents
 
----
+        - [Features](#features)
+        - [Usage](#usage)
+        - [Installation](#installation)
+        - [Contribute](#contribute)
+        - [Credits](#credits)
+        - [License](#license)
+        - [Questions](#questions)
+        
+        `);
 
-`
-
-        const toWriteTOC = 
-`## Table of Contents
-
-- [Features](#features🎇)
-- [Usage](#usage🖼️)
-- [Installation](#installation📓)
-- [Contribute](#contribute🏗️)
-- [Credits](#credits🏆)
-- [License](#license📝)
-- [Questions](#questions)
-
----
-
-`
 
         // Generate feature section content
-        let toWriteFeatures = 
-`## Features
+        let toWriteFeatures = '## Features \n';
 
-`
         // Separate features from the Array and display on separate lines
         for (const feature of featureData) toWriteFeatures += '* ' + feature + '\n';
 
-        toWriteFeatures += 
-`---
+        toWriteFeatures += '<br/>';
 
-`
+        const toWriteUsage = dedent(`## Usage
 
-        const toWriteUsage = 
-`## Usage
+        ### Here is a video to demonstrate 
+        
+        `);
 
-### Here is a video to demonstrate 
+        const toWriteInstallation = dedent(`## Installation
 
----
+        [Link to this repo url](${repoUrl})
+        
+        ### Follow the steps below to install:
+        
+        1. Clone the github to your local storage.
+        
+        2. Start up your favourite terminal, follow this guide here if you're not sure how to:
+        [A Quick Guide to Using Command Line - Terminal](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955).
+        
+        3. Navigate to the repository local folder.
+        
+        4. Run npm i
+        
+        5. Run node index.js
+        
+        6. Simply follow the prompt.
+        
+        7. A professional readme is now generated for your project!
+        
+        `);
 
-`
 
-        const toWriteInstallation = 
-`## Installation
+        const toWriteContribute = dedent(`## Contribute
 
-[Repo url](${repoUrl})
+        When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
----
+        Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-### Follow the steps below to install:
+        [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
+        
+        `);
 
-1. Clone the github to your local storage.
 
-2. Start up your favourite terminal, follow this guide here if you're not sure how to:
-[A Quick Guide to Using Command Line - Terminal](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955).
+        let toWriteCredits = '## Credits \n'
 
-3. Navigate to the repository local folder.
-
-4. Run npm i
-
-5. Run node index.js
-
-6. Simply follow the prompt.
-
-7. A professional readme is now generated for your project!
-
----
-
-`
-
-        const toWriteContribute =
-`## Contribute
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
-
----
-
-`
-
-        let toWriteCredits = 
-`## Credits
-
-`
         // Separate credits from the Array and display credit descript and hyperlink on separate lines
-        for (const credit of creditData) toWriteCredits +=
-`### ${credit.creditDesc}
-[Link to this credit: ](${credit.creditLink})
+        for (const credit of creditData) toWriteCredits += dedent(`### ${credit.creditDesc}
+        [Link to this credit: ](${credit.creditLink})
+        
+        `);
 
-`
 
         let toWriteLicense = '';
         let licenseDisplay = '';
@@ -275,116 +263,117 @@ ${languageDisplay}
         switch (license) {
           case 'BSD 2-Clause License':
 
-            licenseDisplay = '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)'
+            licenseDisplay = '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause) \n'
 
-            toWriteLicense = `
----
-
-## License
-
-### BSD 2-Clause License
-
-Copyright (c) ${year}, ${developer} All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
+            toWriteLicense = dedent(`
+            
+            ### BSD 2-Clause License
+            
+            Copyright (c) ${year}, ${developer} All rights reserved.
+            
+            Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+            
+            Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+            
+            Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+            
+            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`);
 
           break;
           case 'MIT License':
 
-            licenseDisplay = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            licenseDisplay = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) \n';
 
-            toWriteLicense =`
----
-
-## License
-
-### MIT License
-
-Copyright (c) [${year}] [${developer}]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.`;
+            toWriteLicense = dedent(`
+            
+            ### MIT License
+            
+            Copyright (c) [${year}] [${developer}]
+            
+            Permission is hereby granted, free of charge, to any person obtaining a copy
+            of this software and associated documentation files (the "Software"), to deal
+            in the Software without restriction, including without limitation the rights
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is
+            furnished to do so, subject to the following conditions:
+            
+            The above copyright notice and this permission notice shall be included in all
+            copies or substantial portions of the Software.
+            
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+            SOFTWARE.`);
 
           break;
           case 'The Unlicense':
 
-            licenseDisplay = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
+            licenseDisplay = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/) \n';
 
-            toWriteLicense = `
----
-
-## License
-
-### The Unlicense
-
-This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
-
-In jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to https://unlicense.org`
+            toWriteLicense = dedent(`
+            
+            ### The Unlicense
+            
+            This is free and unencumbered software released into the public domain.
+            
+            Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+            
+            In jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.
+            
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            
+            For more information, please refer to https://unlicense.org`);
           break;
         }
 
-        const toWriteQuestions =
-`
----
-## Questions
+        const toWriteQuestions = dedent(`
+        ## Questions
+        
+        For any further questions or comments, feel free to contact me!
+        
+        [Link to my github profile](https://github.com/${gitUsername}/)
+        
+        [Drop me an email here](mailto:${email})
+        
+        `);
 
-For any further questions or comments, feel free to contact me!
+        const backTotop = dedent(`
+        
+        [Back to the top](#project-title)
+        
+        `);
 
-[Link to my github profile](https://github.com/${gitUsername}/)
+        const linkBreak = '\n\n --- \n\n';
 
-[Drop me an email here](mailto:${email})
-
-`
-        const backTotop = 
-`
----
-
-[Back to the top](#project-title)
-
-`
 
         const dataToWrite = licenseDisplay
           + toWriteProjectTitle 
           + toWriteDescription
+          + linkBreak
           + toWriteTOC
+          + linkBreak
           + toWriteFeatures
+          + linkBreak
           + toWriteUsage
+          + linkBreak
           + toWriteInstallation
+          + linkBreak
           + toWriteContribute
+          + linkBreak
           + toWriteCredits
+          + linkBreak
+          + licenseDisplay
           + toWriteLicense
+          + linkBreak
           // + toWriteTests
           + toWriteQuestions
+          + linkBreak
           + backTotop
 
-        fs.writeFile('README.md', dataToWrite, (error) =>
+        fs.writeFile(`${projectTitle}.md`, dataToWrite, (error) =>
           error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
         );
         }
