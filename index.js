@@ -32,8 +32,18 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Github repo URL:',
+      message: 'The Project Github repo URL:',
       name: 'repoUrl',
+    },
+    {
+      type: 'input',
+      message: 'Your Github username:',
+      name: 'gitUsername',
+    },
+    {
+      type: 'input',
+      message: 'Your professional email address:',
+      name: 'email',
     },
     {
       type: 'list',
@@ -115,7 +125,14 @@ const askCredit = () => {
       } else {
         console.log('Credits:', creditData.join(', '));
 
-        const {developer, projectTitle, projectDescription, languageUsed, repoUrl, license} = generalData;
+        const {developer, 
+          projectTitle, 
+          projectDescription, 
+          languageUsed, 
+          repoUrl, 
+          gitUsername,
+          email,
+          license} = generalData;
 
         const languageData = [];
 
@@ -175,6 +192,7 @@ ${languageDisplay}
 - [Contribute](#contribute🏗️)
 - [Credits](#credits🏆)
 - [License](#license📝)
+- [Questions](#questions)
 
 <br/>
 
@@ -332,6 +350,18 @@ For more information, please refer to https://unlicense.org`
           break;
         }
 
+        const toWriteQuestions =
+`<br/>
+## Questions
+
+For any further questions or comments, feel free to contact me!
+
+[Link to my github profile](https://github.com/${gitUsername}/)
+
+[Drop me an email here](mailto:${email})
+
+`
+
         const dataToWrite = licenseDisplay
           + toWriteProjectTitle 
           + toWriteDescription
@@ -343,7 +373,7 @@ For more information, please refer to https://unlicense.org`
           + toWriteCredits
           + toWriteLicense
           // + toWriteTests
-          // + toWriteQuestions
+          + toWriteQuestions
 
         fs.writeFile('README.md', dataToWrite, (error) =>
           error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
