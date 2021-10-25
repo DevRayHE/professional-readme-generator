@@ -47,11 +47,11 @@
 
 ### Here is a video to demonstrate 
 
-![Usage sample video](.\images\usageVideo.gif)
+![Usage sample video](./images/usageVideo.gif)
 
 ---
 
-![README file generated](.\images\readmeVideo.gif)
+![README file generated](./images/readmeVideo.gif)
 
  --- 
 

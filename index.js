@@ -336,8 +336,9 @@ const askCredit = () => {
         }
 
         const toWriteTests = dedent(`## Tests
+
         
-        `) + test; 
+        `) + '\n' + test; 
 
         const toWriteQuestions = dedent(`
         ## Questions
