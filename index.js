@@ -1,7 +1,10 @@
-// Importing dependencies
+//Function to initialize app
+function init() {
+  // Importing dependencies
 const dedent = require('dedent');
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { inherits } = require('util');
 const today = new Date();
 const year = today.getFullYear();
 
@@ -30,12 +33,17 @@ inquirer
       type: 'checkbox',
       message: 'What languages was used?',
       name: 'languageUsed',
-      choices: ['Markdown','HTML', 'CSS', 'JavaScript', 'Node.js', 'React'],
+      choices: ['Markdown','HTML', 'CSS', 'Javascript', 'Node.js', 'React'],
     },
     {
       type: 'input',
       message: 'The Project Github repo URL:',
       name: 'repoUrl',
+    },
+    {
+      type: 'input',
+      message: 'The Project usage video/image link:',
+      name: 'mediaLink',
     },
     {
       type: 'input',
@@ -48,6 +56,16 @@ inquirer
       name: 'email',
     },
     {
+      type: 'editor',
+      message: 'Installation instructions:',
+      name: 'install',
+    },
+    {
+      type: 'editor',
+      message: 'Test instructions:',
+      name: 'test',
+    },
+    {
       type: 'list',
       message: 'Choose a license:',
       name: 'license',
@@ -56,7 +74,6 @@ inquirer
   ])
   .then((data) => {
     generalData = data;
-    console.log(data);
     // start another inquirer prompt by calling askFeature funciton when promised is full-filled on general data inquirer prompt
     askFeature();
 
@@ -110,7 +127,6 @@ const askFeature = () => {
       if (answers.moreFeature) {
         askFeature();
       } else {
-        console.log('Your project features:', featureData.join(', '));
         // start another inquirer prompt by calling askFeature funciton when promised is full-filled on feature data inquirer prompt
         askCredit();
       }
@@ -126,15 +142,17 @@ const askCredit = () => {
       if (answers.moreCredits) {
         askCredit();
       } else {
-        console.log('Credits:', creditData.join(', '));
-
+        // Destructure variable from object to be used below.
         const {developer, 
           projectTitle, 
           projectDescription, 
           languageUsed, 
-          repoUrl, 
+          repoUrl,
+          mediaLink,
           gitUsername,
           email,
+          install,
+          test,
           license} = generalData;
 
         const languageData = [];
@@ -188,10 +206,11 @@ const askCredit = () => {
         ## Table of Contents
 
         - [Features](#features)
-        - [Usage](#usage)
         - [Installation](#installation)
+        - [Usage](#usage)
         - [Contribute](#contribute)
         - [Credits](#credits)
+        - [Tests](#tests)
         - [License](#license)
         - [Questions](#questions)
         
@@ -210,6 +229,8 @@ const askCredit = () => {
 
         ### Here is a video to demonstrate 
         
+        ![Usage sample video.](${mediaLink})
+
         `);
 
         const toWriteInstallation = dedent(`## Installation
@@ -218,23 +239,8 @@ const askCredit = () => {
         
         ### Follow the steps below to install:
         
-        1. Clone the github to your local storage.
-        
-        2. Start up your favourite terminal, follow this guide here if you're not sure how to:
-        [A Quick Guide to Using Command Line - Terminal](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955).
-        
-        3. Navigate to the repository local folder.
-        
-        4. Run npm i
-        
-        5. Run node index.js
-        
-        6. Simply follow the prompt.
-        
-        7. A professional readme is now generated for your project!
-        
-        `);
-
+        `)
+        + install;
 
         const toWriteContribute = dedent(`## Contribute
 
@@ -329,6 +335,10 @@ const askCredit = () => {
           break;
         }
 
+        const toWriteTests = dedent(`## Tests
+        
+        `) + test; 
+
         const toWriteQuestions = dedent(`
         ## Questions
         
@@ -346,36 +356,42 @@ const askCredit = () => {
         
         `);
 
-        const linkBreak = '\n\n --- \n\n';
-
+        const lineBreak = '\n\n --- \n\n';
 
         const dataToWrite = licenseDisplay
           + toWriteProjectTitle 
+          + lineBreak
           + toWriteDescription
-          + linkBreak
+          + lineBreak
           + toWriteTOC
-          + linkBreak
+          + lineBreak
           + toWriteFeatures
-          + linkBreak
+          + lineBreak
           + toWriteUsage
-          + linkBreak
+          + lineBreak
           + toWriteInstallation
-          + linkBreak
+          + lineBreak
           + toWriteContribute
-          + linkBreak
+          + lineBreak
           + toWriteCredits
-          + linkBreak
+          + lineBreak
           + licenseDisplay
           + toWriteLicense
-          + linkBreak
-          // + toWriteTests
+          + lineBreak
+          + toWriteTests
+          + lineBreak
           + toWriteQuestions
-          + linkBreak
+          + lineBreak
           + backTotop
 
         fs.writeFile(`${projectTitle}.md`, dataToWrite, (error) =>
-          error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
+          error ? console.error(error) : console.log(`Professional Readme file - ${projectTitle}.md successfully generated!!`)
         );
         }
     });
 }
+
+}
+
+// Function call to initialize app
+init();

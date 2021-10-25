@@ -1,62 +1,72 @@
-[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 # Project Title
 
-##
+## Professional Readme Generator
 
  --- 
 
 ## 📖Description
 
-### 
+### A professional readme generator, to quickly and easily create a README file by using a command-line application. This allows the project creator to devote more time to working on the project.
 
-### Langugaes used:
+### Langugaes used: 
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
  --- 
 
 ## Table of Contents
 
 - [Features](#features)
-- [Usage](#usage)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Contribute](#contribute)
 - [Credits](#credits)
+- [Tests](#tests)
 - [License](#license)
 - [Questions](#questions)
 
  --- 
 
 ## Features 
-* 
-* 
+* Dynamically generates a professional README.md file.
+* Used NPM Inquirer Package for best compatibility.
+* Accepts multiple features input.
+* Accepts multiple Credits input.
+* Table of contents with link to each section.
+* Choices of license and content dynamically generated.
+* Questions section with link to developer Github profile and email.
 <br/>
 
  --- 
 
 ## Usage
 
-### Here is a video to demonstrate
+### Here is a video to demonstrate 
+
+![Usage sample video](.\images\usageVideo.gif)
+
+---
+
+![README file generated](.\images\readmeVideo.gif)
 
  --- 
 
 ## Installation
 
-[Repo url]()
+[Link to this repo url](https://github.com/DevRayHE/professional-readme-generator)
 
 ### Follow the steps below to install:
 
-1. Clone the github to your local storage.
-
-2. Start up your favourite terminal, follow this guide here if you're not sure how to:
-[A Quick Guide to Using Command Line - Terminal](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955).
-
+1. Clone the Github Repository to your local storage.
+2. Start up your favourite terminal.
 3. Navigate to the repository local folder.
-
 4. Run npm i
-
 5. Run node index.js
-
 6. Simply follow the prompt.
-
 7. A professional readme is now generated for your project!
 
  --- 
@@ -72,25 +82,39 @@ Please note we have a code of conduct, please follow it in all your interactions
  --- 
 
 ## Credits 
-### 
-[Link to this credit: ]()
+### Beautiful Markdown Badges by "lleriayo" on Github.
+[Link to this credit: ](https://github.com/Ileriayo/markdown-badges.git)
 
  --- 
 
-[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause) 
-## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+### MIT License
 
-### BSD 2-Clause License
+Copyright (c) [2021] [Ray He]
 
-Copyright (c) 2021,  All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ --- 
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+## Tests
+
+To be implemented.
 
  --- 
 
@@ -98,9 +122,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 For any further questions or comments, feel free to contact me!
 
-[Link to my github profile](https://github.com//)
+[Link to my github profile](https://github.com/devrayhe/)
 
-[Drop me an email here](mailto:)
+[Drop me an email here](mailto:devrayhe@gmail.com)
 
  --- 
 
