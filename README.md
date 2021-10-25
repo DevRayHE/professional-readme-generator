@@ -1,9 +1,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/>
 
-# 💻Project Title
+# Project Title
 
 ## readme gen
-<br/>
+---
 
 ## 📖Description
 
@@ -16,7 +16,7 @@
 
 
 
-<br/>
+---
 
 ## Table of Contents
 
@@ -28,26 +28,26 @@
 - [License](#license📝)
 - [Questions](#questions)
 
-<br/>
+---
 
 ## Features🎇
 
 * lots of features!
 * More features !
 * ANother one!
-<br/>
+---
 
 ## Usage🖼️
 
 ### Here is a video to demonstrate 
 
-<br/>
+---
 
 ## Installation📓
 
 [Repo url](https://github.com/DevRayHE/professional-readme-generator)
 
-<br/>
+---
 
 ### Follow the steps below to install:
 
@@ -66,13 +66,13 @@
 
 7. A professional readme is now generated for your project!
 
-<br/>
+---
 
 ## Contribute🏗️
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
-<br/>
+---
 
 ## Credits🏆
 
@@ -80,7 +80,7 @@
 [Link to this credit](https://github.com/Ileriayo/markdown-badges)
 
 
-<br/>
+---
 
 ## License📝
 
@@ -104,12 +104,19 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.<br/>
+SOFTWARE.
+
+---
 ## Questions
 
 For any further questions or comments, feel free to contact me!
 
-[Link to my github profile](https://github.com/devrayhe/)
+- [Link to my github profile](https://github.com/devrayhe/)
 
-[Drop me an email here](mailto:devrayhe@gmail.com)
+- [Drop me an email here](mailto:devrayhe@gmail.com)
+
+
+---
+
+[Back to the top](#project-title)
 

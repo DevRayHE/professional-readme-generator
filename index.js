@@ -162,12 +162,12 @@ const askCredit = () => {
         }
 
         const toWriteProjectTitle = 
-`<br/>
+`---
 
-# 💻Project Title
+# Project Title
 
 ## ${projectTitle}
-<br/>
+---
 
 `
 
@@ -179,7 +179,7 @@ const askCredit = () => {
 ### Langugaes used: 
 ${languageDisplay}
 
-<br/>
+---
 
 `
 
@@ -194,38 +194,38 @@ ${languageDisplay}
 - [License](#license📝)
 - [Questions](#questions)
 
-<br/>
+---
 
 `
 
         // Generate feature section content
         let toWriteFeatures = 
-`## Features🎇
+`## Features
 
 `
         // Separate features from the Array and display on separate lines
         for (const feature of featureData) toWriteFeatures += '* ' + feature + '\n';
 
         toWriteFeatures += 
-`<br/>
+`---
 
 `
 
         const toWriteUsage = 
-`## Usage🖼️
+`## Usage
 
 ### Here is a video to demonstrate 
 
-<br/>
+---
 
 `
 
         const toWriteInstallation = 
-`## Installation📓
+`## Installation
 
 [Repo url](${repoUrl})
 
-<br/>
+---
 
 ### Follow the steps below to install:
 
@@ -244,21 +244,21 @@ ${languageDisplay}
 
 7. A professional readme is now generated for your project!
 
-<br/>
+---
 
 `
 
         const toWriteContribute =
-`## Contribute🏗️
+`## Contribute
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
 
-<br/>
+---
 
 `
 
         let toWriteCredits = 
-`## Credits🏆
+`## Credits
 
 `
         // Separate credits from the Array and display credit descript and hyperlink on separate lines
@@ -278,9 +278,9 @@ ${languageDisplay}
             licenseDisplay = '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)'
 
             toWriteLicense = `
-<br/>
+---
 
-## License📝
+## License
 
 ### BSD 2-Clause License
 
@@ -300,9 +300,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             licenseDisplay = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
 
             toWriteLicense =`
-<br/>
+---
 
-## License📝
+## License
 
 ### MIT License
 
@@ -332,9 +332,9 @@ SOFTWARE.`;
             licenseDisplay = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
 
             toWriteLicense = `
-<br/>
+---
 
-## License📝
+## License
 
 ### The Unlicense
 
@@ -351,7 +351,8 @@ For more information, please refer to https://unlicense.org`
         }
 
         const toWriteQuestions =
-`<br/>
+`
+---
 ## Questions
 
 For any further questions or comments, feel free to contact me!
@@ -359,6 +360,13 @@ For any further questions or comments, feel free to contact me!
 [Link to my github profile](https://github.com/${gitUsername}/)
 
 [Drop me an email here](mailto:${email})
+
+`
+        const backTotop = 
+`
+---
+
+[Back to the top](#project-title)
 
 `
 
@@ -374,6 +382,7 @@ For any further questions or comments, feel free to contact me!
           + toWriteLicense
           // + toWriteTests
           + toWriteQuestions
+          + backTotop
 
         fs.writeFile('README.md', dataToWrite, (error) =>
           error ? console.error(error) : console.log(`Professional Readme file - 'README.md' successfully generated!!`)
