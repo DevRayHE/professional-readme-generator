@@ -1,16 +1,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 # Project Title
 
-## Professional Readme Generator
+## Team Profile Generator
 
  --- 
 
 ## 📖Description
 
-### A professional readme generator, to quickly and easily create a README file by using a command-line application. This allows the project creator to devote more time to working on the project.
+### A Node.js application that takes in information about employees on a software engineer team, generates an HTML webpage that displays summaries for each team member, with unit test included.
 
 ### Langugaes used: 
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
@@ -32,13 +34,11 @@
  --- 
 
 ## Features 
-* Dynamically generates a professional README.md file.
-* Used NPM Inquirer Package for best compatibility.
-* Accepts multiple features input.
-* Accepts multiple Credits input.
-* Table of contents with link to each section.
-* Choices of license and content dynamically generated.
-* Questions section with link to developer Github profile and email.
+* Node.js command-line application takes in real world data
+* HTML file dynamically generated with input data
+* Generated webpage with functional navigations
+* Comprehensive unit test included
+* Modules to optimize files structure
 <br/>
 
  --- 
@@ -47,21 +47,15 @@
 
 ### Here is a video to demonstrate 
 
-![Usage sample video](./images/professional_readme_generator_sample_video.mp4)
-
----
-
-![README file generated](./images/readmeVideo.gif)
+![Usage sample video.](./dist/image/demovideo.gif)
 
  --- 
 
 ## Installation
 
-[Link to this repo url](https://github.com/DevRayHE/professional-readme-generator)
+[Link to this repo url](https://github.com/DevRayHE/team-profile-generator)
 
-### Follow the steps below to install:
-
-1. Clone the Github Repository to your local storage.
+### Follow the steps below to install:1. Clone the Github Repository to your local storage.
 2. Start up your favourite terminal.
 3. Navigate to the repository local folder.
 4. Run npm i
@@ -82,8 +76,8 @@ Please note we have a code of conduct, please follow it in all your interactions
  --- 
 
 ## Credits 
-### Beautiful Markdown Badges by "lleriayo" on Github.
-[Link to this credit: ](https://github.com/Ileriayo/markdown-badges.git)
+### NA
+[Link to this credit: ](NA)
 
  --- 
 
@@ -113,8 +107,13 @@ SOFTWARE.
  --- 
 
 ## Tests
-
-To be implemented.
+1. Clone the Github Repository to your local storage.
+2. Start up your favourite terminal.
+3. Navigate to the repository local folder.
+4. Run npm i
+5. Run node index.js
+6. Simply follow the prompt.
+7. A professional readme is now generated for your project!
 
  --- 
 
@@ -122,7 +121,7 @@ To be implemented.
 
 For any further questions or comments, feel free to contact me!
 
-[Link to my github profile](https://github.com/devrayhe/)
+[Link to my github profile](https://github.com/Devrayhe/)
 
 [Drop me an email here](mailto:devrayhe@gmail.com)
 
