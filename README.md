@@ -47,7 +47,7 @@
 
 ### Here is a video to demonstrate 
 
-![Usage sample video](./images/professional_readme_generator_sample_video.mp4)
+![Usage sample video](https://vimeo.com/642242012)
 
 ---
 
