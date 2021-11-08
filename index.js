@@ -33,7 +33,7 @@ function init() {
         type: 'checkbox',
         message: 'What languages was used?',
         name: 'languageUsed',
-        choices: ['Markdown','HTML', 'CSS', 'Javascript', 'Node.js', 'React'],
+        choices: ['Markdown','HTML', 'CSS', 'Javascript', 'Node.js', 'Express.js', 'MySQL', 'React'],
       },
       {
         type: 'input',
@@ -175,6 +175,12 @@ function init() {
           }
           if (languageUsed.includes('React')) {
             languageData.push('![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)');
+          }
+          if (languageUsed.includes('Express.js')) {
+            languageData.push('![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)');
+          }
+          if (languageUsed.includes('MySQL')) {
+            languageData.push('![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)');
           }
 
           let languageDisplay = '';
