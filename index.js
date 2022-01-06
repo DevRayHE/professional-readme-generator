@@ -33,7 +33,18 @@ function init() {
         type: 'checkbox',
         message: 'What languages was used?',
         name: 'languageUsed',
-        choices: ['Markdown','HTML', 'CSS', 'Javascript', 'Node.js', 'Express.js', 'MySQL', 'React'],
+        choices: [
+          'Markdown',
+          'HTML', 
+          'CSS', 
+          'Javascript', 
+          'Node.js', 
+          'Express.js', 
+          'MySQL', 
+          'Sequelize', 
+          'React',
+          'MongoDB'
+        ],
       },
       {
         type: 'input',
@@ -181,6 +192,12 @@ function init() {
           }
           if (languageUsed.includes('MySQL')) {
             languageData.push('![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)');
+          }
+          if (languageUsed.includes('Sequelize')) {
+            languageData.push('![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)');
+          }
+          if (languageUsed.includes('MongoDB')) {
+            languageData.push('![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)');
           }
 
           let languageDisplay = '';
