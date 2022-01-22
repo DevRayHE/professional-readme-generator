@@ -43,7 +43,8 @@ function init() {
           'MySQL', 
           'Sequelize', 
           'React',
-          'MongoDB'
+          'MongoDB',
+          'SASS'
         ],
       },
       {
@@ -198,6 +199,9 @@ function init() {
           }
           if (languageUsed.includes('MongoDB')) {
             languageData.push('![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)');
+          }
+          if (languageUsed.includes('Node.js')) {
+            languageData.push('![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)');
           }
 
           let languageDisplay = '';
