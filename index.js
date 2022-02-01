@@ -44,7 +44,9 @@ function init() {
           'Sequelize', 
           'React',
           'MongoDB',
-          'SASS'
+          'SASS',
+          'Apollo GraphQL',
+          'Redux'
         ],
       },
       {
@@ -200,8 +202,14 @@ function init() {
           if (languageUsed.includes('MongoDB')) {
             languageData.push('![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)');
           }
-          if (languageUsed.includes('Node.js')) {
+          if (languageUsed.includes('SASS')) {
             languageData.push('![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)');
+          }
+          if (languageUsed.includes('Apollo GraphQL')) {
+            languageData.push('![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)');
+          }
+          if (languageUsed.includes('Redux')) {
+            languageData.push('![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)');
           }
 
           let languageDisplay = '';
